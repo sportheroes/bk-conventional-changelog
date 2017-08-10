@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "lint": "jshint *.js --exclude node_modules && jscs *.js",
-    "test": "mocha --timeout 30000 && npm run-script lint",
-    "test-windows": "echo 'make work on windows'"
+    "test": "mocha --timeout 30000 && npm run-script lint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stevemao/conventional-changelog-atom.git"
+    "url": "git+https://github.com/sportheroes/bk-conventional-changelog.git"
   },
   "keywords": [
     "conventional-changelog",
@@ -24,9 +23,9 @@
     "templates"
   ],
   "bugs": {
-    "url": "https://github.com/stevemao/conventional-changelog-atom/issues"
+    "url": "https://github.com/sportheroes/bk-conventional-changelog/issues"
   },
-  "homepage": "https://github.com/stevemao/conventional-changelog-atom#readme",
+  "homepage": "https://github.com/sportheroes/bk-conventional-changelog#readme",
   "devDependencies": {
     "chai": "^4.1.1",
     "conventional-changelog-core": "1.9.0",
