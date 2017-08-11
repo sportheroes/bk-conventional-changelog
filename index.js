@@ -15,28 +15,25 @@ const fullNames = {
 
 const beautifyType = commit => {
   const type = commit.type;
-  const name = (fullNames[type]) ? fullNames[type] : fullNames.MOD;
-
-  commit.type = name;
+  commit.type = (fullNames[type]) ? fullNames[type] : fullNames.MOD;
 };
 
 const beautifyScope = commit => {
-  const scopeText = (commit.scope) ? commit.scope : '(miscellaneous)';
-  const scopeOnly = scopeText.slice(1, -1);
-
-  commit.scope = scopeOnly.charAt(0).toUpperCase() + scopeOnly.slice(1);
+  const scopeText = (commit.scope) ? commit.scope : 'Miscellaneous';
+  commit.scope = scopeText.charAt(0).toUpperCase() + scopeText.slice(1);
 };
 
-const beatifyDescription = commit => {
-  commit.shortDesc = commit.shortDesc.substring(0, 72);
+const beautifyHash = commit => {
+  if (typeof commit.hash === 'string') {
+    commit.hash = commit.hash.substring(0, 7);
+  }
 };
 
 function presetOpts(cb) {
   const parserOpts = {
-    headerPattern: /^([\uD800-\uDBFF]|[\u2702-\u27B0]|[\uF680-\uF6C0]|[\u24C2-\uF251])*(.*){1}\[(.*)\]\s(\(.*\))?\s(.*)$/,
+    headerPattern: /^([\uD800-\uDBFF]|[\u2702-\u27B0]|[\uF680-\uF6C0]|[\u24C2-\uF251])+.+?\[([A-Z]{3,4})\]\s(?:\((.*)\))?\s?(.*)$/,
     headerCorrespondence: [
       'emoji',
-      'space',
       'type',
       'scope',
       'shortDesc'
@@ -48,16 +45,9 @@ function presetOpts(cb) {
       if (!commit.type || typeof commit.type !== 'string') {
         return;
       }
-      
       beautifyType(commit);
       beautifyScope(commit);
-      beatifyDescription(commit);
-
-      if (typeof commit.hash === 'string') {
-        console.log('---> commit.hash');
-        console.log(commit.hash);
-        commit.hash = commit.hash.substring(0, 7);
-      }
+      beautifyHash(commit);
 
       return commit;
     },
