@@ -73,4 +73,10 @@ function presetOpts(cb) {
     });
 }
 
+presetOpts.commitFormat = '%B' + // body
+  '%n-hash-%n%H' +            // short hash  
+  '%n-gitTags-%n%d' +         // tags
+  '%n-committerDate-%n%ci' +  // Committer date
+  '%n-committerName-%n%cN';   // Committer name
+
 module.exports = presetOpts;
