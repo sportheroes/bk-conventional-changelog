@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.1.0...v1.2.0) (2017-10-26)
+
+
+### ✅ Features
+
+* **Preset**: Added custom git log format ([927d913](https://github.com/sportheroes/bk-conventional-changelog/commit/927d913))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.0.2...v1.1.0) (2017-10-26)
 
