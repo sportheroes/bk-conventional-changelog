@@ -77,6 +77,7 @@ presetOpts.commitFormat = '%B' + // body
   '%n-hash-%n%H' +            // short hash  
   '%n-gitTags-%n%d' +         // tags
   '%n-committerDate-%n%ci' +  // Committer date
-  '%n-committerName-%n%cN';   // Committer name
+  '%n-committerName-%n%aN' +  // Committer name (author)
+  '%n-mergerName-%n%cN';      // Merger name (committer)
 
 module.exports = presetOpts;
