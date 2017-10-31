@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.2.1...v1.3.0) (2017-10-31)
+
+
+### ✅ Features
+
+* **Data**: Added association table of comitter emails and usernames ([409678c](https://github.com/sportheroes/bk-conventional-changelog/commit/409678c) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+* **Preset**: Added username in commit information ([f1b94f2](https://github.com/sportheroes/bk-conventional-changelog/commit/f1b94f2) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+### 🔄 Notable changes
+
+* **Template**: Commit template relies on username i/o committerName ([95cd1e9](https://github.com/sportheroes/bk-conventional-changelog/commit/95cd1e9) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.2.0...v1.2.1) (2017-10-30)
 
