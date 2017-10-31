@@ -4,6 +4,8 @@ const Q = require('q');
 const readFile = Q.denodeify(require('fs').readFile);
 const resolve = require('path').resolve;
 
+const usernames = require('./usernames');
+
 const fullNames = {
   ADD: '✅ Features',
   DOC: '☑️ Documentation',
@@ -29,6 +31,14 @@ const beautifyHash = commit => {
   }
 };
 
+const setUsername = commit => {
+  if (typeof commit.committerEmail === 'string') {
+    if (usernames[commit.committerEmail]) {
+      commit.username = usernames[commit.committerEmail];
+    }
+  }
+};
+
 function presetOpts(cb) {
   const parserOpts = {
     headerPattern: /^([\uD800-\uDBFF]|[\u2702-\u27B0]|[\uF680-\uF6C0]|[\u24C2-\uF251])+.+?\[([A-Z]{3,4})\]\s(?:\((.*?)\))?\s?(.*)$/,
@@ -45,9 +55,11 @@ function presetOpts(cb) {
       if (!commit.type || typeof commit.type !== 'string') {
         return;
       }
+
       beautifyType(commit);
       beautifyScope(commit);
       beautifyHash(commit);
+      setUsername(commit);
 
       return commit;
     },
@@ -74,10 +86,12 @@ function presetOpts(cb) {
 }
 
 presetOpts.commitFormat = '%B' + // body
-  '%n-hash-%n%H' +            // short hash  
-  '%n-gitTags-%n%d' +         // tags
-  '%n-committerDate-%n%ci' +  // Committer date
-  '%n-committerName-%n%aN' +  // Committer name (author)
-  '%n-mergerName-%n%cN';      // Merger name (committer)
+  '%n-hash-%n%H' +               // short hash  
+  '%n-gitTags-%n%d' +            // tags
+  '%n-committerDate-%n%ci' +     // Committer date
+  '%n-committerName-%n%aN' +     // Committer name (author)
+  '%n-committerEmail-%n%aE' +    // Committer email (author)
+  '%n-mergerName-%n%cN' +        // Merger name (committer)
+  '%n-mergerEmail-%n%cE';        // Merger email (committer)
 
 module.exports = presetOpts;
