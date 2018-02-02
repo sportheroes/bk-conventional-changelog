@@ -36,8 +36,7 @@ describe('SportHeroesGroup backend preset', () => {
       .pipe(through(chunk => {
         chunk = chunk.toString();
 
-        expect(chunk).to.not.include('Add default port AWS');
-
+        expect(chunk).to.include('Add default port AWS');
         expect(chunk).to.include('Sort by members count');
         expect(chunk).to.include('Include filters keys to promote target');
         expect(chunk).to.include('Change createRanking implementation, use count');

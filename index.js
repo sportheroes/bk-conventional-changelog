@@ -13,10 +13,11 @@ const fullNames = {
   MOD: '🔄 Notable changes',
   PUB: '⏩ Versioning',
   TEST: '🔀 Testing',
+  DEFAULT: '😭 Unclassified (not [following convention](https://github.com/sportheroes/bk-conventional-changelog#types-of-commits))',
 };
 
 const beautifyType = commit => {
-  const type = commit.type;
+  const type = (commit.type) ? commit.type : 'DEFAULT';
   commit.type = (fullNames[type]) ? fullNames[type] : fullNames.MOD;
 };
 
@@ -52,10 +53,6 @@ function presetOpts(cb) {
 
   const writerOpts = {
     transform: function(commit) {
-      if (!commit.type || typeof commit.type !== 'string') {
-        return;
-      }
-
       beautifyType(commit);
       beautifyScope(commit);
       beautifyHash(commit);
@@ -86,7 +83,7 @@ function presetOpts(cb) {
 }
 
 presetOpts.commitFormat = '%B' + // body
-  '%n-hash-%n%H' +               // short hash  
+  '%n-hash-%n%H' +               // short hash
   '%n-gitTags-%n%d' +            // tags
   '%n-committerDate-%n%ci' +     // Committer date
   '%n-committerName-%n%aN' +     // Committer name (author)
