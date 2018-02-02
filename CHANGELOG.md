@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.3.2...v1.4.0) (2018-02-02)
+
+
+### ✅ Features
+
+* **Core**: Commits not following convention are now credited ([5297c45](https://github.com/sportheroes/bk-conventional-changelog/commit/5297c45) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+### 🔄 Notable changes
+
+* **Usernames**: Added new entries ([45501a4](https://github.com/sportheroes/bk-conventional-changelog/commit/45501a4) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+
+
 <a name="1.3.2"></a>
 ## [1.3.2](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.3.1...v1.3.2) (2017-12-15)
 
