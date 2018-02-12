@@ -1,6 +1,6 @@
 {
   "name": "@sportheroes/bk-conventional-changelog",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "conventional-changelog SportHeroesGroup backend preset",
   "main": "index.js",
   "scripts": {
