@@ -17,7 +17,18 @@ const fullNames = {
 };
 
 const beautifyType = commit => {
-  const type = (commit.type) ? commit.type : 'DEFAULT';
+  const description = commit.shortDesc || commit.header;
+  let type = (commit.type) ? commit.type : 'DEFAULT';
+
+
+  if (type === 'DEFAULT' && description.match(/Merge pull request #[0-9]+ from .*/ig)) {
+    type = 'PUB';
+
+    if (!commit.scope) {
+      commit.scope = 'Release';
+    }
+  }
+
   commit.type = (fullNames[type]) ? fullNames[type] : fullNames.MOD;
 };
 
