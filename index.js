@@ -58,7 +58,7 @@ const setUsername = commit => {
 
 function presetOpts(cb) {
   const parserOpts = {
-    headerPattern: /^([\uD800-\uDBFF]|[\u2702-\u27B0]|[\uF680-\uF6C0]|[\u23C2-\uF251])+.+?\[([A-Z]{3,4})\]\s(?:\((.*?)\))?\s?(.*)$/,
+    headerPattern: /^(?:\s|\t)*([\uD800-\uDBFF]|[\u2702-\u27B0]|[\uF680-\uF6C0]|[\u23C2-\uF251])+.+?\[([A-Z]{3,4})\]\s(?:\((.*?)\))?\s?(.*)$/,
     headerCorrespondence: [
       'emoji',
       'type',
