@@ -16,10 +16,15 @@ const fullNames = {
   DEFAULT: '😭 Unclassified (not [following convention](https://github.com/sportheroes/bk-conventional-changelog#types-of-commits))',
 };
 
+const beautifyDescription = commit => {
+  if (commit.shortDesc) {
+    commit.shortDesc = commit.shortDesc.trim();
+  }
+};
+
 const beautifyType = commit => {
   const description = commit.shortDesc || commit.header;
-  let type = (commit.type) ? commit.type : 'DEFAULT';
-
+  let type = (commit.type) ? commit.type.trim() : 'DEFAULT';
 
   if (type === 'DEFAULT' && description.match(/Merge pull request #[0-9]+ from .*/ig)) {
     type = 'PUB';
@@ -33,7 +38,7 @@ const beautifyType = commit => {
 };
 
 const beautifyScope = commit => {
-  const scopeText = (commit.scope) ? commit.scope : 'Miscellaneous';
+  const scopeText = (commit.scope) ? commit.scope.trim() : 'Miscellaneous';
   commit.scope = scopeText.charAt(0).toUpperCase() + scopeText.slice(1);
 };
 
@@ -64,6 +69,7 @@ function presetOpts(cb) {
 
   const writerOpts = {
     transform: function(commit) {
+      beautifyDescription(commit);
       beautifyType(commit);
       beautifyScope(commit);
       beautifyHash(commit);
