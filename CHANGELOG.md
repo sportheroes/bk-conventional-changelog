@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.5.2...v1.6.0) (2018-06-04)
+
+
+### ✅ Features
+
+* **Core**: Added trimming of all text fields ([cb2dbc0](https://github.com/sportheroes/bk-conventional-changelog/commit/cb2dbc0) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+* **Core**: Discard whitespaces at the start of a commit ([568db58](https://github.com/sportheroes/bk-conventional-changelog/commit/568db58) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+### 🔀 Testing
+
+* **Core**: Added example of commit with trailing whitespaces ([bdcc042](https://github.com/sportheroes/bk-conventional-changelog/commit/bdcc042) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+### 🔄 Notable changes
+
+* **Dependencies**: Bumped `q` version to v1.5.1 ([2698d48](https://github.com/sportheroes/bk-conventional-changelog/commit/2698d48) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+
+
 <a name="1.5.2"></a>
 ## [1.5.2](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.5.1...v1.5.2) (2018-04-19)
 
