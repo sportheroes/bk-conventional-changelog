@@ -26,6 +26,7 @@ describe('SportHeroesGroup backend preset', () => {
     gitDummyCommit('🔀 [TEST] (services) Adjusted MemoryRange unit tests');
     gitDummyCommit('⏩ [PUB] (release) Published sub-packages');
     gitDummyCommit('Merge pull request #2334 from sportheroes/romain/feature/facebook-email-fallback');
+    gitDummyCommit(' ✴️ [FIX] (unitedMonthly) use getHighest date between userClientCreatedAt and exportStartAt')
   });
 
   it('should work if there is no semver tag', (done) => {
@@ -48,6 +49,7 @@ describe('SportHeroesGroup backend preset', () => {
         expect(chunk).to.include('Adjusted MemoryRange unit tests');
         expect(chunk).to.include('Published sub-packages');
         expect(chunk).to.include('Merge pull request #2334 from sportheroes/romain/feature/facebook-email-fallback');
+        expect(chunk).to.include('use getHighest date between userClientCreatedAt and exportStartAt')
 
         done();
       }));
