@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.6.0...v1.7.0) (2018-07-09)
+
+
+### ✅ Features
+
+* **Dependencies**: Bumped conventional-changelog-core to v3.0.0 ([58c6079](https://github.com/sportheroes/bk-conventional-changelog/commit/58c6079) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.5.2...v1.6.0) (2018-06-04)
 
