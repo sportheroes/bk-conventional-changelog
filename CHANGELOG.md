@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.7.0...v1.8.0) (2018-07-09)
+
+
+### ✅ Features
+
+* **Core**: Discard release commit that aren't merges or lerna ([342d54c](https://github.com/sportheroes/bk-conventional-changelog/commit/342d54c) - [JoeTheFkingFrypan](https://github.com/JoeTheFkingFrypan))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.6.0...v1.7.0) (2018-07-09)
 
