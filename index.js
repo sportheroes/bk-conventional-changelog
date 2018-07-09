@@ -6,6 +6,8 @@ const resolve = require('path').resolve;
 
 const usernames = require('./usernames');
 
+const legacyMergeRegex = /Merge pull request #[0-9]+ from .*/ig
+const semverRegex = /^[\d.]+.?-?(.*)?$/ig;
 const fullNames = {
   ADD: '✅ Features',
   DOC: '☑️ Documentation',
@@ -26,7 +28,7 @@ const beautifyType = commit => {
   const description = commit.shortDesc || commit.header;
   let type = (commit.type) ? commit.type.trim() : 'DEFAULT';
 
-  if (type === 'DEFAULT' && description.match(/Merge pull request #[0-9]+ from .*/ig)) {
+  if (type === 'DEFAULT' && description.match(legacyMergeRegex)) {
     type = 'PUB';
 
     if (!commit.scope) {
@@ -56,6 +58,17 @@ const setUsername = commit => {
   }
 };
 
+const process = commit => {
+  const isReleaseCommit = (commit.type === fullNames['PUB'] && commit.scope === 'Release');
+
+  // Discard release commit that aren't merges or lerna publish
+  if (isReleaseCommit && commit.shortDesc && commit.shortDesc.match(semverRegex)) {
+    return;
+  }
+
+  return commit;
+};
+
 function presetOpts(cb) {
   const parserOpts = {
     headerPattern: /^(?:\s|\t)*([\uD800-\uDBFF]|[\u2702-\u27B0]|[\uF680-\uF6C0]|[\u23C2-\uF251])+.+?\[([A-Z]{3,4})\]\s(?:\((.*?)\))?\s?(.*)$/,
@@ -75,7 +88,7 @@ function presetOpts(cb) {
       beautifyHash(commit);
       setUsername(commit);
 
-      return commit;
+      return process(commit);
     },
     groupBy: 'type',
     commitGroupsSort: 'title',
