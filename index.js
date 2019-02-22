@@ -1,10 +1,9 @@
 'use strict';
 
+const { CHANGELOG: { GITHUB_USERNAMES = {}} = {}} = require('config');
 const Q = require('q');
 const readFile = Q.denodeify(require('fs').readFile);
 const resolve = require('path').resolve;
-
-const usernames = require('./usernames');
 
 const legacyMergeRegex = /Merge pull request #[0-9]+ from .*/ig
 const semverRegex = /^[\d.]+.?-?(.*)?$/ig;
@@ -52,8 +51,8 @@ const beautifyHash = commit => {
 
 const setUsername = commit => {
   if (typeof commit.committerEmail === 'string') {
-    if (usernames[commit.committerEmail]) {
-      commit.username = usernames[commit.committerEmail];
+    if (GITHUB_USERNAMES[commit.committerEmail]) {
+      commit.username = GITHUB_USERNAMES[commit.committerEmail];
     }
   }
 };
