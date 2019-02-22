@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.8.1...v2.0.0) (2019-02-22)
+
+
+### ☑️ Documentation
+
+* **Changelog**: Recreated file from scratch ([c0949f5](https://github.com/sportheroes/bk-conventional-changelog/commit/c0949f5) - [TheOptimisticFactory](https://github.com/TheOptimisticFactory))
+
+### ✅ Features
+
+* **Core**: Prepared core for open-sourcing ([1d46912](https://github.com/sportheroes/bk-conventional-changelog/commit/1d46912)))
+
+
+
 <a name="1.8.1"></a>
 ## [1.8.1](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.8.0...v1.8.1) (2018-12-06)
 
