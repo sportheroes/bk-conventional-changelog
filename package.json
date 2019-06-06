@@ -1,13 +1,14 @@
 {
   "name": "@sportheroes/bk-conventional-changelog",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "conventional-changelog SportHeroesGroup backend preset",
   "main": "index.js",
   "scripts": {
     "lint": "jshint *.js --exclude node_modules && jscs *.js",
     "lint-win": "jshint index.js test.js --exclude node_modules && jscs index.js test.js",
     "test": "mocha --timeout 30000 && npm run-script lint",
-    "test-win": "mocha --timeout 30000 && npm run-script lint-win"
+    "test-win": "mocha --timeout 30000 && npm run-script lint-win",
+    "release": "bk-standard-version"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "through2": "^2.0.3"
   },
   "dependencies": {
+    "@sportheroes/bk-standard-version": "^5.0.0",
     "q": "^1.5.1"
   }
 }

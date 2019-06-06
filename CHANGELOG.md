@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/sportheroes/bk-conventional-changelog/compare/v2.0.0...v2.0.1) (2019-06-06)
+
+
+### 🔄 Notable changes
+
+* **Miscellaneous**: Handle security fix commit ([c9c1f1a](https://github.com/sportheroes/bk-conventional-changelog/commit/c9c1f1a)))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/sportheroes/bk-conventional-changelog/compare/v1.8.1...v2.0.0) (2019-02-22)
 
