@@ -1,11 +1,12 @@
 'use strict';
 
-const { CHANGELOG: { GITHUB_USERNAMES = {}} = {}} = require('config');
+const {CHANGELOG: {GITHUB_USERNAMES = {}} = {}} = require('config');
 const Q = require('q');
 const readFile = Q.denodeify(require('fs').readFile);
 const resolve = require('path').resolve;
 
-const legacyMergeRegex = /Merge pull request #[0-9]+ from .*/ig
+const legacyMergeRegex = /Merge pull request #[0-9]+ from .*/ig;
+const securityFixRegex = /Bump .* from .* to .*/i;
 const semverRegex = /^[\d.]+.?-?(.*)?$/ig;
 const fullNames = {
   ADD: '✅ Features',
@@ -14,7 +15,8 @@ const fullNames = {
   MOD: '🔄 Notable changes',
   PUB: '⏩ Versioning',
   TEST: '🔀 Testing',
-  DEFAULT: '😭 Unclassified (not [following convention](https://github.com/sportheroes/bk-conventional-changelog#types-of-commits))',
+  BUMP: '⏩ Bump version',
+  DEFAULT: 'Unclassified (not [following convention](https://github.com/sportheroes/bk-conventional-changelog#types-of-commits))',
 };
 
 const beautifyDescription = commit => {
@@ -27,11 +29,17 @@ const beautifyType = commit => {
   const description = commit.shortDesc || commit.header;
   let type = (commit.type) ? commit.type.trim() : 'DEFAULT';
 
-  if (type === 'DEFAULT' && description.match(legacyMergeRegex)) {
-    type = 'PUB';
+  if (type === 'DEFAULT') {
 
-    if (!commit.scope) {
-      commit.scope = 'Release';
+    if (description.match(legacyMergeRegex)) {
+      type = 'PUB';
+
+      if (!commit.scope) {
+        commit.scope = 'Release';
+      }
+    } else if (description.match(securityFixRegex)) {
+      type = 'BUMP';
+      commit.scope = 'Security';
     }
   }
 
@@ -58,7 +66,8 @@ const setUsername = commit => {
 };
 
 const process = commit => {
-  const isReleaseCommit = (commit.type === fullNames['PUB'] && commit.scope === 'Release');
+  const pub = 'PUB';
+  const isReleaseCommit = (commit.type === fullNames[pub] && commit.scope === 'Release');
 
   // Discard release commit that aren't merges or lerna publish
   if (isReleaseCommit && commit.shortDesc && commit.shortDesc.match(semverRegex)) {
