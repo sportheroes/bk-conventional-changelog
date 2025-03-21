@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## <small>2.0.3 (2025-03-21)</small>
+
+* 🔄 [MOD] Bump dependencies + set config as peerDep ([3ae76ed](https://github.com/sportheroes/bk-conventional-changelog/commit/3ae76ed))
+* Bump handlebars from 4.1.2 to 4.5.3 ([e101ea2](https://github.com/sportheroes/bk-conventional-changelog/commit/e101ea2))
+* Bump lodash.template from 4.4.0 to 4.5.0 ([df95664](https://github.com/sportheroes/bk-conventional-changelog/commit/df95664))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/sportheroes/bk-conventional-changelog/compare/v2.0.0...v2.0.2) (2019-06-10)
 
